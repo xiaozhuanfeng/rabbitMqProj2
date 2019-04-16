@@ -5,7 +5,7 @@ import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.stereotype.Component;
 
 @Component
-@RabbitListener(queues = "hello")
+@RabbitListener(queues = RabbitConstant.MESG_QUEUE_KEY)
 public class HelloReceiver2 {
     @RabbitHandler
     public void process(String hello) {
