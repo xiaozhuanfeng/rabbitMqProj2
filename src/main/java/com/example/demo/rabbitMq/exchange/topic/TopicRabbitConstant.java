@@ -12,4 +12,6 @@ public class TopicRabbitConstant {
     public static final String TOPIC_MESSAGE = "topic.message";
     public static final String TOPIC_MESSAGE_S = "topic.messages";
     public static final String USER_MESSAGE = "user.message";
+    public static final String ARM_QUEUE = "arm.queue";
+    public static final String BYTE_QUEUE = "byte.queue";
 }

@@ -1,7 +1,5 @@
 package com.example.demo.rabbitMq;
 
-import com.example.demo.dto.User;
-import com.example.demo.rabbitMq.exchange.topic.TopicReceiver1;
 import com.example.demo.utils.Base64Utils;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -13,7 +11,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import javax.annotation.Resource;
 import java.io.IOException;
 import java.util.List;
 
@@ -35,6 +32,7 @@ public class RabbitMqRevTest {
         logger.info("获取Queue[arm.gun]消息>>>");
         Message mesg = rabbitTemplate.receive("arm.queue");
         System.out.println(mesg);
+
         if(null != mesg){
             byte[] body = mesg.getBody();
             try {
@@ -48,4 +46,6 @@ public class RabbitMqRevTest {
             }
         }
     }
+
+
 }
