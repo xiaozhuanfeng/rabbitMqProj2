@@ -9,19 +9,21 @@ import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.stereotype.Component;
 
 import java.io.IOException;
+import java.util.Date;
 
 @Component
 public class TopicReceiver5 {
 
     private Logger logger = LoggerFactory.getLogger(this.getClass());
 
-   @RabbitListener(queues = TopicRabbitConstant.BYTE_QUEUE, containerFactory="rabbitListenerContainerFactory")
+    //@RabbitListener(queues = TopicRabbitConstant.BYTE_QUEUE, containerFactory = "rabbitListenerContainerFactory")
+    @RabbitListener(queues = TopicRabbitConstant.BYTE_QUEUE)
     public void process(Message message, Channel channel) throws IOException {
-        try{
-            System.out.println("Receiver5  : " + Base64Utils.byteToObj(message.getBody()));
+        try {
+            System.out.println("Receiver5  : " + new Date() + ">>>>" + Base64Utils.byteToObj(message.getBody()));
             //int i = 6/0;
 
-        }catch (Exception e){
+        } catch (Exception e) {
             if (!message.getMessageProperties().getRedelivered()) {
                 System.out.println("消息即将再次返回队列处理...");
                 channel.basicNack(message.getMessageProperties().getDeliveryTag(), false, true);

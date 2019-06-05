@@ -14,4 +14,9 @@ public class TopicRabbitConstant {
     public static final String USER_MESSAGE = "user.message";
     public static final String ARM_QUEUE = "arm.queue";
     public static final String BYTE_QUEUE = "byte.queue";
+
+    /**
+     * 延时Queue
+     */
+    public static final String DELAY_QUEUE = "delay.queue";
 }
